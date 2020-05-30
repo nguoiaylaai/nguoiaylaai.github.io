@@ -3,7 +3,7 @@ email: nguyenhongphat28121998@gmail.com
 description: >-
   Người Ấy Là Ai Database. Thông tin tổng hợp về các nhân vật trong Người Ấy Là Ai. Wiki, Database, Info,...
 baseurl: ""
-url: "https://nguoiaylaai.github.io/"
+url: "https://nguoiaylaai.github.io"
 github_username:  nguyenhongphat0
 menus:
   - Trang chủ
@@ -14,6 +14,7 @@ menus:
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default.
