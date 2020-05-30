@@ -1,0 +1,16 @@
+{% assign id = include.men.name | split: "." | first %}
+{% assign season = id | split: "-" | slice: 0 %}
+{% assign episode = id | split: "-" | slice: 1 %}
+{% assign index = id | split: "-" | slice: 2 %}
+<div class="user-block block text-center">
+  <div><img class="img-fluid rounded-circle" src="/assets/mens/{{id}}.png" alt="..." class="img-fluid"></div>
+  <a href="/mens/{{id}}" class="user-title">
+    <h3 class="h5 my-2">{{men.title}}</h3>
+  </a>
+  <div class="{{include.men.color}}"></div>
+  <div class="details d-flex pt-2">
+    <div class="item"><i class="icon-flow-branch"></i><strong>Mùa {{ season }}</strong></div>
+    <div class="item"><i class="fa fa-play"></i><strong>Tập {{ episode }}</strong></div>
+    <div class="item"><i class="fa fa-hashtag"></i><strong>STT {{ index }}</strong></div>
+  </div>
+</div>

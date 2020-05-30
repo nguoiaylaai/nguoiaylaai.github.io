@@ -1,4 +1,17 @@
 ---
 layout: default
+title: Những chàng trai trong chương trình
 menu: Những chàng trai
 ---
+{% assign mens = site.pages | where: "layout", "men" %}
+<section class="detail no-padding-bottom">
+  <div class="container-fluid">
+    <div class="row">
+      {% for men in mens %}
+      <div class="col-lg-4">
+        {% include a-men.html men=men %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
