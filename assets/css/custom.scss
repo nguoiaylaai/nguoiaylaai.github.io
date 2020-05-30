@@ -1,0 +1,52 @@
+---
+---
+@mixin diamond($color, $title) {
+  text-align: center;
+  border-style: solid;
+  border-color: transparent transparent $color transparent;
+  border-width: 0 25px 25px 25px;
+  height: 0;
+  width: 50px;
+  box-sizing: content-box;
+  position: relative;
+  margin: 0 auto 50px auto;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: -25px;
+    width: 20px;
+    height: 0;
+    box-sizing: content-box;
+    border-style: solid;
+    border-color: $color transparent transparent transparent;
+    border-width: 50px 40px 0 40px;
+  }
+  &:after {
+    content: $title;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    width: 80px;
+    top: 10px;
+    left: -15px;
+    z-index: 1;
+    display: block;
+  }
+}
+
+.red {
+  @include diamond(#F5313A, "ĐÃ CÓ CHỦ");
+}
+.green {
+  @include diamond(#00A759, "ĐỘC THÂN");
+}
+.purple {
+  @include diamond(#A54ABD, "GIỚI TÍNH THỨ 3");
+}
+.detail .status {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

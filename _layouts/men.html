@@ -1,0 +1,114 @@
+---
+layout: 'default'
+---
+{% assign id = page.name | split: "." | first %}
+{% assign season = id | split: "-" | slice: 0 %}
+{% assign episode = id | split: "-" | slice: 1 %}
+{% assign index = id | split: "-" | slice: 2 %}
+<section class="detail no-padding-bottom">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="user-block block">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="">
+                <img src="/assets/mens/{{id}}.png" alt="..." class="img-fluid">
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="user-title">
+                <h2>{{ page.title }}</h2>
+                {% if page.facebook.link %}
+                <span>Facebook: <a class="d-inline" target="_blank" href="{{page.facebook.link}}">{{ page.facebook.name }} <i class="fa fa-facebook"></i></a></span>
+                {% endif %}
+                <div class="status {{page.color}}"></div>
+              </div>
+              <div class="pt-4">
+                {% if page.birth.year %}
+                <b>Tuổi: </b><span></span><br/>
+                {% endif %}
+                {% if page.job %}
+                <b>Nghề nghiệp: </b><span>{{ page.job }}</span><br/>
+                {% endif %}
+                {% for meta in page.meta %}
+                <b>{{ meta[0] }}: </b><span>{{ meta[1] }}</span><br/>
+                {% endfor %}
+              </div>
+              <div class="details d-flex">
+                <div class="item"><i class="icon-flow-branch"></i><strong>Mùa {{ season }}</strong></div>
+                <div class="item"><i class="fa fa-play"></i><strong>Tập {{ episode }}</strong></div>
+                <div class="item"><i class="fa fa-hashtag"></i><strong>STT {{ index }}</strong></div>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="user-block block">
+          <h3>Thông tin</h3>
+          <p>
+            {{ content }}
+          </p>
+          <h3>Dự đoán</h3>
+          <br/>
+          <h5>Giám khảo</h5>
+          <p>
+            <table class="table table-bordered">
+              <tr>
+                <th class="text-center">Vòng</th>
+                {% for judge in page.judge %}
+                <th class="text-center">{{ judge[0] }}</th>
+                {% endfor %}
+              </tr>
+              {% for round in (0..2) %}
+              <tr>
+                <th class="text-center">{{ round | plus: 1 }}</th>
+                {% for judge in page.judge %}
+                <td><div class="{{judge[1][round]}}"></div></td>
+                {% endfor %}
+              </tr>
+              {% endfor %}
+            </table></p>
+            <h5>Khán giả</h5>
+            <p>
+              <table class="table table-bordered">
+                <tr>
+                  <th class="text-center">Vòng</th>
+                  <th><div class="red"></div></th>
+                  <th><div class="green"></div></th>
+                  <th><div class="purple"></div></th>
+                </tr>
+                {% for round in (0..2) %}
+                <tr>
+                  <th class="text-center">{{ round | plus: 1 }}</th>
+                  {% for color in page.votes %}
+                  <td class="text-center">{{ color[1][round] }}%</td>
+                  {% endfor %}
+                </tr>
+                {% endfor %}
+              </table>
+            </p>
+            {% if page.show %}
+            <h3>Tiết mục</h3>
+            <p>{{ page.show }}</p>
+            {% endif %}
+            {% if page.result %}
+            <h3>Kết quả</h3>
+            <p>{{ page.result }}</p>
+            {% endif %}
+            {% if page.refs %}
+            <h3>Tham khảo</h3>
+            <p>
+              <ul>
+                {% for ref in page.refs %}
+                <li><a href="{{ref}}" target="_blank">{{ ref }}</a></li>
+                {% endfor %}
+              </ul>
+            </p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
