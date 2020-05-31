@@ -3,8 +3,8 @@
 {% assign episode = id | split: "-" | slice: 1 %}
 {% assign index = id | split: "-" | slice: 2 %}
 <div class="user-block block text-center">
-  <div><img class="img-fluid rounded-circle" src="/assets/mens/{{id}}.png" alt="..." class="img-fluid"></div>
   <a href="/mens/{{id}}" class="user-title">
+    <img class="img-fluid rounded-circle" src="/assets/mens/{{id}}.png" alt="..." class="img-fluid">
     <h3 class="h5 my-2">{{men.title}}</h3>
   </a>
   <div class="{{include.men.color}}"></div>
