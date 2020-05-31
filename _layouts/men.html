@@ -71,7 +71,7 @@ layout: 'default'
                 <th class="text-center">{{ judge[0] }}</th>
                 {% endfor %}
               </tr>
-              {% for round in (0..1) %}
+              {% for round in (0..2) %}
               <tr>
                 <th class="text-center">{{ round | plus: 1 }}</th>
                 {% for judge in page.judge %}

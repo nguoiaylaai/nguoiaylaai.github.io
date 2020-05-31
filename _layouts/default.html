@@ -7,8 +7,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
+    <meta property="og:url" content="{{site.url}}{{page.url}}" />
     {% if page.layout == "men" %}
     {% assign id = page.name | split: "." | first %}
+    <meta property="og:description" content="{{page.quote}}" />
     <meta property="og:image" content="/assets/mens/{{id}}.png" />
     {% else %}
     <meta property="og:image" content="/assets/img/brand/nala.png" />

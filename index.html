@@ -4,7 +4,7 @@ title: Trang chủ
 menu: Trang chủ
 ---
 <h2>Những gương mặt mới</h2>
-{% assign mens = site.pages | where: "layout", "men" | reverse | slice: 0, 5 %}
+{% assign mens = site.pages | where: "layout", "men" | slice: -5, 5 %}
 <div class="row">
   {% for men in mens %}
   <div class="col">
