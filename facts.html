@@ -1,0 +1,77 @@
+---
+layout: default
+title: Fun Facts
+menu: Fun Facts
+---
+{% raw %}
+<div id="app" v-cloak>
+  <section class="detail no-padding-bottom">
+    <div class="container-fluid">
+      <h2><small>Những chàng trai được</small> nhiều màu xanh nhất</h2>
+      <div class="row py-2">
+        <div v-for="item, i in topGreens" class="col">
+          <men v-bind:men="item.men" v-bind:no="i + 1">
+            <div class="green"></div> x <b class="h3">{{ item.count }}</b>
+          </men>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script type="text/x-template" id="men-template">
+  <div class="user-block block text-center h-100">
+    <a v-bind:href="`/mens/${id}`" class="user-title my-2">
+      <div class="avatar">
+        <img v-bind:src="`/assets/mens/${id}.png`" alt="..." class="img-fluid">
+        <div v-bind:class="'order top-' + no">{{ no }}</div>
+      </div>
+      <h3 class="h5">{{ men.title }}</h3><span v-bind:class="`hash-${men.color}`"></span>
+    </a>
+    <div>
+      <slot></slot>
+    </div>
+  </div>
+</script>
+{% endraw %}
+
+{% assign mens = site.pages | where: "layout", "men" %}
+<script>
+  Vue.component('Men', {
+    template: '#men-template',
+    props: ['men', 'no'],
+    computed: {
+      id: function () {
+        return this.men.name.split('.')[0]
+      }
+    }
+  })
+
+  var app = new Vue({
+    el: '#app',
+    created() {
+      console.log(this.mens)
+    },
+    methods: {
+      countColor: function(men, color) {
+        let count = 0;
+        for (const key in men.judge) {
+          const colors = men.judge[key];
+          count += colors.filter(c => c === color).length;
+        }
+        return { men, count };
+      }
+    },
+    computed: {
+      topGreens: function () {
+        return this.mens
+        .map(men => this.countColor(men, 'green'))
+        .sort((a, b) => b.count - a.count)
+        .slice(0, 5);
+      }
+    },
+    data: {
+      mens: {{ mens | jsonify }}
+    }
+  })
+</script>
