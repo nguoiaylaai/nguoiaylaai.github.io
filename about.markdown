@@ -5,17 +5,41 @@ menu: Thông tin
 permalink: /about/
 ---
 
-## Về website
+## Về website {#website}
 
-Người Ấy Là Ai Database là trang web mã nguồn mở được tạo ra nhằm mục đích cung cấp thông tin tổng hợp về các nhân vật trong gameshow Người Ấy Là Ai. Hy vọng trang web sẽ giúp bạn dễ dàng tìm kiếm được thông tin về chàng trai yêu thích của bạn trong chương trình.
+Người Ấy Là Ai Database (NALADB) là nơi tổng hợp thông tin, dữ liệu tổng hợp về các nhân vật trong gameshow Người Ấy Là Ai. Hy vọng trang web sẽ giúp bạn dễ dàng tìm kiếm được thông tin về chàng trai yêu thích của bạn trong chương trình.
 
-## Về tác giả
-Source code của web site được dựng nên và duy trì bởi 1 người:
+## Bản quyền source code {#license}
+
+Người Ấy Là Ai Database là trang web mã nguồn mở, nghĩa là bất cứ ai cũng có thể xem, gợi ý sửa đổi hoặc dùng source code để phát triển một dự án mới và tự tiếp quản. Tuy nhiên, khi sao chép source code của NALADB cần phải đảm bảo một trong các điều kiện sau:
+
+* Nếu một dự án khác được phát triển dựa trên source code của NALADB thì dự án đó phải là một dự án mã nguồn mở và là một nhánh fork của NALADB.
+
+hoặc,
+
+* Cần để lại một tham chiếu tới source code của NALADB ([https://github.com/nguoiaylaai/nguoiaylaai.github.io](https://github.com/nguoiaylaai/nguoiaylaai.github.io)) dưới dạng một đường link nằm trực tiếp ở footer.
+
+Việc fork một repository là một cách để phát triển một dự án mới trên nền của dự án cũ và tôn trọng tác giả. Và việc mở mã nguồn dự án là cần thiết để cộng đồng mã nguồn mở có thể chung tay phát triển một dự án tốt hơn. Tuy nhiên nếu việc mở mã nguồn có thể không phù hợp với nhu cầu, dự án mới có thể đóng source code nhưng với điều kiện thứ hai là để lại tham chiếu ở footer. Chỉ cần một trong hai điều kiện là đủ, có thể làm cả hai, nhưng nếu không thoả mãn điều kiện nào thì người sao chép bị xem như xâm phạm quyền sở hữu trí tuệ. Người sao chép source code sẽ phải chịu toàn bộ trách nhiệm về vấn đề bản quyền nếu có trong tương lai.
+
+## Về tác giả {#author}
+
+Source code của web site được phát triển và bảo trì bởi:
 [nguyenhongphat0](https://github.com/{{site.github_username}})
 
 Tuy nhiên nội dung website, hình ảnh và videos có thể được tham khảo từ các nguồn khác. Thông tin nguồn sẽ được dẫn rõ phía dưới nội dung được tham khảo.
 
-## Thông báo miễn trừ trách nhiệm
+## Hợp tác {#corporate}
+
+Nếu bạn là nhà tuyển dụng và có nhu cầu tìm kiếm nhân lực, hoặc đơn giản là cần một freelancer, hãy tham khảo các hồ sơ của mình:
+
+* [CV](https://nguyenhongphat0.github.io/pdf/cv.pdf)
+* [Portfolio](https://nguyenhongphat0.github.io)
+* [Github](https://github.com/nguyenhongphat0)
+* [LinkedIn](https://www.linkedin.com/in/hồng-phát-nguyễn-a94b44169)
+
+Mọi thông tin liên hệ (bao gồm Số điện thoại, Email, Facebook) luôn được cập nhật trong CV và Portfolio. Mình luôn sằng sàng chờ đợi các offer tốt từ nhà tuyển dụng.
+
+## Thông báo miễn trừ trách nhiệm {#announcements}
 
 #### Đối với toàn bộ nội dung Website:
 
@@ -31,10 +55,10 @@ với chủ đề bắt đầu bằng: [NALADB]. Chúng tôi sẽ xem sé
  
 #### Cảnh báo việc sử dụng nội dung:
 
-*  Mọi việc tham quan, lưu trữ, in ấn, sao chép lại hoặc phân phối những thông tin, tài liệu trong trang Web này vì mục đích cá nhân, phi thương mại đều được phép với điều kiện các thông tin không bị thay đổi.
+*  Mọi việc tham quan, lưu trữ, in ấn, sao chép lại hoặc phân phối những thông tin, tài liệu trong trang web này vì mục đích cá nhân, phi thương mại đều được phép với điều kiện các thông tin không bị thay đổi.
 
 * Ghi rõ nguồn
 [{{site.url}}]({{site.url}})
-khi trích dẫn thông tin, nội dung từ Website này.
+khi trích dẫn thông tin, nội dung từ website này.
 
-* Việc thay đổi chính sách sẽ được chúng tôi thông báo tại Website này.
+__Việc thay đổi chính sách sẽ được chúng tôi thông báo tại website này.__
