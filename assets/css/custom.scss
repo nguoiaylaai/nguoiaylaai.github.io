@@ -64,6 +64,9 @@
 .hash-purple {
   @include hash(#A54ABD, "GIỚI TÍNH THỨ 3");
 }
+.small {
+  transform: scale(0.75) translateY(50%);
+}
 .detail .status {
   position: absolute;
   top: -10px;

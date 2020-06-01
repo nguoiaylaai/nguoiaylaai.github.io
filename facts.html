@@ -11,7 +11,47 @@ menu: Fun Facts
       <div class="row py-2">
         <div v-for="item, i in topGreens" class="col">
           <men v-bind:men="item.men" v-bind:no="i + 1">
-            <div class="green"></div> x <b class="h3">{{ item.count }}</b>
+            <div class="small green"></div> x<b class="h2">{{ item.count }}</b>
+          </men>
+        </div>
+      </div>
+      <h2><small>Những chàng trai được</small> nhiều màu đỏ nhất</h2>
+      <div class="row py-2">
+        <div v-for="item, i in topReds" class="col">
+          <men v-bind:men="item.men" v-bind:no="i + 1">
+            <div class="small red"></div> x<b class="h2">{{ item.count }}</b>
+          </men>
+        </div>
+      </div>
+      <h2><small>Những chàng trai được</small> nhiều màu tím nhất</h2>
+      <div class="row py-2">
+        <div v-for="item, i in topPurples" class="col">
+          <men v-bind:men="item.men" v-bind:no="i + 1">
+            <div class="small purple"></div> x<b class="h2">{{ item.count }}</b>
+          </men>
+        </div>
+      </div>
+      <h2><small>Những chàng trai được</small> nhiều khán giả bỉ̀nh chọn màu xanh nhất</h2>
+      <div class="row py-2">
+        <div v-for="item, i in topGreenVotes" class="col">
+          <men v-bind:men="item.men" v-bind:no="i + 1">
+            <b class="h2">{{ item.vote }}</b>% <div class="small green"></div>
+          </men>
+        </div>
+      </div>
+      <h2><small>Những chàng trai được</small> nhiều khán giả bỉ̀nh chọn màu đỏ nhất</h2>
+      <div class="row py-2">
+        <div v-for="item, i in topRedVotes" class="col">
+          <men v-bind:men="item.men" v-bind:no="i + 1">
+            <b class="h2">{{ item.vote }}</b>% <div class="small red"></div>
+          </men>
+        </div>
+      </div>
+      <h2><small>Những chàng trai được</small> nhiều khán giả bỉ̀nh chọn màu tím nhất</h2>
+      <div class="row py-2">
+        <div v-for="item, i in topPurpleVotes" class="col">
+          <men v-bind:men="item.men" v-bind:no="i + 1">
+            <b class="h2">{{ item.vote }}</b>% <div class="small purple"></div>
           </men>
         </div>
       </div>
@@ -46,7 +86,7 @@ menu: Fun Facts
       }
     }
   })
-
+  
   var app = new Vue({
     el: '#app',
     created() {
@@ -60,15 +100,38 @@ menu: Fun Facts
           count += colors.filter(c => c === color).length;
         }
         return { men, count };
+      },
+      countVote: function(men, color) {
+        let count = 0;
+        let total = 0;
+        men.votes[color].forEach(vote => {
+          if (vote) {
+            count++;
+            total += vote;
+          }
+        });
+        return { men, vote: total / count };
+      },
+      topColor: function(top, color) {
+        return this.mens
+        .map(men => this.countColor(men, color))
+        .sort((a, b) => b.count - a.count)
+        .slice(0, top);
+      },
+      topVote: function(top, color) {
+        return this.mens
+        .map(men => this.countVote(men, color))
+        .sort((a, b) => b.vote - a.vote)
+        .slice(0, top);
       }
     },
     computed: {
-      topGreens: function () {
-        return this.mens
-        .map(men => this.countColor(men, 'green'))
-        .sort((a, b) => b.count - a.count)
-        .slice(0, 5);
-      }
+      topGreens: function() { return this.topColor(5, 'green') },
+      topReds: function() { return this.topColor(5, 'red') },
+      topPurples: function() { return this.topColor(5, 'purple') },
+      topGreenVotes: function() { return this.topVote(5, 'green') },
+      topRedVotes: function() { return this.topVote(5, 'red') },
+      topPurpleVotes: function() { return this.topVote(5, 'purple') },
     },
     data: {
       mens: {{ mens | jsonify }}
