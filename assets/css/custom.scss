@@ -35,7 +35,17 @@
     display: block;
   }
 }
-
+@mixin hash($color, $title) {
+  &:after {
+    content: "#" + $title;
+    text-transform: lowercase;
+    font-style: italic;
+    color: $color;
+  }
+}
+[v-cloak] {
+  display: none;
+}
 .red {
   @include diamond(#F5313A, "ĐÃ CÓ CHỦ");
 }
@@ -44,6 +54,18 @@
 }
 .purple {
   @include diamond(#A54ABD, "GIỚI TÍNH THỨ 3");
+}
+.hash-red {
+  @include hash(#F5313A, "ĐÃ CÓ CHỦ");
+}
+.hash-green {
+  @include hash(#00A759, "ĐỘC THÂN");
+}
+.hash-purple {
+  @include hash(#A54ABD, "GIỚI TÍNH THỨ 3");
+}
+.small {
+  transform: scale(0.75) translateY(50%);
 }
 .detail .status {
   position: absolute;
@@ -55,4 +77,20 @@
 }
 .inactive {
   filter: grayscale(1);
+}
+.order {
+  background-color: #26292d;
+}
+.top-1 {
+  background-color: #ffc107;
+  box-shadow: 0 0 0 8px rgba(#ffc107, 0.5);
+}
+.top-2 {
+  background-color: #e9ecef;
+  box-shadow: 0 0 0 6px rgba(#e9ecef, 0.5);
+  color: #212529 !important;
+}
+.top-3 {
+  background-color: #db6574;
+  box-shadow: 0 0 0 4px rgba(#db6574, 0.5);
 }
