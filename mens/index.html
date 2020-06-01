@@ -74,7 +74,10 @@ menu: Những chàng trai
   function query() {
     const params = new URLSearchParams(window.location.search);
     const q = params.get('q');
-    filter.keyword = q;
+    if (q) {
+      $('#keyword').val(q);
+      filter.keyword = q;      
+    }
     refresh();
   }
 
