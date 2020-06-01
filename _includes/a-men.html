@@ -2,7 +2,7 @@
 {% assign season = id | split: "-" | slice: 0 %}
 {% assign episode = id | split: "-" | slice: 1 %}
 {% assign index = id | split: "-" | slice: 2 %}
-<div class="user-block block text-center">
+<div class="user-block block text-center a-men" data-info="{{men.title}} {{men.fullname}} {{men.facebook.name}} mùa {{season}} tập {{episode}} stt {{index}}" data-color="{{men.color}}">
   <a href="/mens/{{id}}" class="user-title">
     <img class="img-fluid rounded-circle" src="/assets/mens/{{id}}.png" alt="..." class="img-fluid">
     <h3 class="h5 my-2">{{men.title}}</h3>

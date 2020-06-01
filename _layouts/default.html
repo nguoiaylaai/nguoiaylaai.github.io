@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="/assets/css/custom.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="/assets/img/favicon.ico">
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -51,10 +52,10 @@
         <div class="search-panel">
           <div class="search-inner d-flex align-items-center justify-content-center">
             <div class="close-btn">Close <i class="fa fa-close"></i></div>
-            <form id="searchForm" action="#">
+            <form id="searchForm" action="/mens">
               <div class="form-group">
-                <input type="search" name="search" placeholder="What are you searching for...">
-                <button type="submit" class="submit">Search</button>
+                <input type="search" name="q" placeholder="Tìm kiếm...">
+                <button type="submit" class="submit">Tìm</button>
               </div>
             </form>
           </div>
@@ -128,7 +129,6 @@
       </div>
     </div>
     <!-- JavaScript files-->
-    <script src="/assets/vendor/jquery/jquery.min.js"></script>
     <script src="/assets/vendor/popper.js/umd/popper.min.js"> </script>
     <script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="/assets/vendor/jquery.cookie/jquery.cookie.js"> </script>

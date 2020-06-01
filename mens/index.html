@@ -3,6 +3,32 @@ layout: default
 title: Những chàng trai trong chương trình
 menu: Những chàng trai
 ---
+<section id="filter" class="detail no-padding-bottom">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <div class="form-group">
+          <div class="input-group">
+            <input id="keyword" type="text" class="form-control" placeholder="Tìm kiếm theo tên, mùa hoặc tập">
+            <div class="input-group-append">
+              <button id="search" type="button" class="btn btn-primary">Tìm</button>
+            </div>
+          </div>
+          <small class="help-block-none">mạnh tùng, manh tung, tập 2,...</small>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 text-right mb-4">
+        <div data-color="red" class="red d-inline-block cursor-pointer"></div>
+        <div data-color="green" class="green d-inline-block cursor-pointer"></div>
+        <div data-color="purple" class="purple d-inline-block cursor-pointer"></div>
+      </div>
+      <div id="notfound" class="col-12 text-center" style="display: none;">
+        <h3>Không tìm thấy kết quả</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% assign mens = site.pages | where: "layout", "men" | reverse %}
 <section class="detail no-padding-bottom">
   <div class="container-fluid">
@@ -15,3 +41,64 @@ menu: Những chàng trai
     </div>
   </div>
 </section>
+
+<script>  
+  String.prototype.vietnameselize = function () {
+    return this.toLowerCase().normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/đ/g, 'd').replace(/Đ/g, 'D');
+  }
+
+  filter = { keyword: '', color: '' }
+  
+  function search() {
+    const keyword = $('#keyword').val();
+    filter.keyword = keyword;
+    refresh();
+  }
+
+  function colorFilter(e) {
+    const color = $(e.target).data('color');
+    if (filter.color && filter.color == color) {
+      filter.color = '';
+      $('#filter [data-color]').removeClass('inactive');
+    } else {
+      $('#filter [data-color]').addClass('inactive');
+      $(e.target).removeClass('inactive')
+      const color = $(e.target).data('color');
+      filter.color = color;
+    }
+    refresh();
+  }
+
+  function query() {
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get('q');
+    filter.keyword = q;
+    refresh();
+  }
+
+  function refresh() {
+    const mens = $('.a-men');
+    const notfound = $('#notfound');
+    notfound.hide();
+    mens.parent().hide();
+    let found = 0;
+    mens.each(function (i, e) {
+      if ((!filter.color || $(e).data('color') == filter.color) && $(e).data('info').vietnameselize().includes(filter.keyword.vietnameselize())) {
+        $(e).parent().show();
+        found++;
+      }
+    })
+    if (!found) {
+      notfound.show();
+    }
+  }
+
+  (function() {
+    $('#keyword').keyup(search);
+    $('#search').click(search);
+    $('[data-color]').click(colorFilter);
+    query();
+  })()
+</script>
