@@ -5,34 +5,34 @@ menu: Fun Facts
 ---
 {% raw %}
 <div id="app" v-cloak>
-  <section class="detail no-padding-bottom">
+  <section class="detail">
     <div class="container-fluid">
       <h2><small>Những chàng trai được</small> nhiều màu xanh nhất</h2>
-      <div class="row py-2">
+      <div class="row pt-2 pb-4">
         <div v-for="item, i in topGreens" class="col">
           <men v-bind:men="item.men" v-bind:no="i + 1">
-            <div class="small green"></div> x<b class="h2">{{ item.count }}</b>
+            <div class="small green"></div> x<b class="h2">{{ item.green }}</b>
           </men>
         </div>
       </div>
       <h2><small>Những chàng trai được</small> nhiều màu đỏ nhất</h2>
-      <div class="row py-2">
+      <div class="row pt-2 pb-4">
         <div v-for="item, i in topReds" class="col">
           <men v-bind:men="item.men" v-bind:no="i + 1">
-            <div class="small red"></div> x<b class="h2">{{ item.count }}</b>
+            <div class="small red"></div> x<b class="h2">{{ item.red }}</b>
           </men>
         </div>
       </div>
       <h2><small>Những chàng trai được</small> nhiều màu tím nhất</h2>
-      <div class="row py-2">
+      <div class="row pt-2 pb-4">
         <div v-for="item, i in topPurples" class="col">
           <men v-bind:men="item.men" v-bind:no="i + 1">
-            <div class="small purple"></div> x<b class="h2">{{ item.count }}</b>
+            <div class="small purple"></div> x<b class="h2">{{ item.purple }}</b>
           </men>
         </div>
       </div>
       <h2><small>Những chàng trai được</small> nhiều khán giả bỉ̀nh chọn màu xanh nhất</h2>
-      <div class="row py-2">
+      <div class="row pt-2 pb-4">
         <div v-for="item, i in topGreenVotes" class="col">
           <men v-bind:men="item.men" v-bind:no="i + 1">
             <b class="h2">{{ item.vote }}</b>% <div class="small green"></div>
@@ -40,7 +40,7 @@ menu: Fun Facts
         </div>
       </div>
       <h2><small>Những chàng trai được</small> nhiều khán giả bỉ̀nh chọn màu đỏ nhất</h2>
-      <div class="row py-2">
+      <div class="row pt-2 pb-4">
         <div v-for="item, i in topRedVotes" class="col">
           <men v-bind:men="item.men" v-bind:no="i + 1">
             <b class="h2">{{ item.vote }}</b>% <div class="small red"></div>
@@ -48,10 +48,70 @@ menu: Fun Facts
         </div>
       </div>
       <h2><small>Những chàng trai được</small> nhiều khán giả bỉ̀nh chọn màu tím nhất</h2>
-      <div class="row py-2">
+      <div class="row pt-2 pb-4">
         <div v-for="item, i in topPurpleVotes" class="col">
           <men v-bind:men="item.men" v-bind:no="i + 1">
             <b class="h2">{{ item.vote }}</b>% <div class="small purple"></div>
+          </men>
+        </div>
+      </div>
+      <h2><small>Những chàng trai </small> làm nhiều người ngạc nhiên nhất</h2>
+      <small><i>*Chàng trai làm nhiều người ngạc nhiên nhất được xem là chàng trai có nhiều phiếu bầu khác với màu thật của mình nhất</i></small>
+      <div class="row pt-2 pb-4">
+        <div v-for="item, i in topDifferents" class="col">
+          <men v-bind:men="item.men" v-bind:no="i + 1">
+            <div>
+              <b class="h2">{{ item.incorrect }}</b> phiếu bầu sai
+            </div>
+            <small>
+              {{ item.red }} <span class="hash-red"></span><br/>
+              {{ item.green }} <span class="hash-green"></span><br/>
+              {{ item.purple }} <span class="hash-purple"></span><br/>
+            </small>
+          </men>
+        </div>
+      </div>
+      <h2><small>Những chàng trai </small> dễ đoán nhất</h2>
+      <small><i>*Chàng trai dễ đoán nhất được xem là chàng trai có nhiều phiếu bầu đúng với màu thật của mình nhất</i></small>
+      <div class="row pt-2 pb-4">
+        <div v-for="item, i in topCorrects" class="col">
+          <men v-bind:men="item.men" v-bind:no="i + 1">
+            <div>
+              <b class="h2">{{ item.correct }}</b> phiếu bầu đúng
+            </div>
+            <small>
+              {{ item.red }} <span class="hash-red"></span><br/>
+              {{ item.green }} <span class="hash-green"></span><br/>
+              {{ item.purple }} <span class="hash-purple"></span><br/>
+            </small>
+          </men>
+        </div>
+      </div>
+      <h2><small>Những chàng trai </small> làm mọi người hoang mang chao đảo nhất</h2>
+      <small><i>*Chàng trai làm chao đảo nhất được xem là chàng trai có nhiều phần trăm bình chọn thay đổi nhất qua các vòng</i></small>
+      <div class="row pt-2 pb-4">
+        <div v-for="item, i in topChanges.slice(0, 5)" class="col">
+          <men v-bind:men="item.men" v-bind:no="i + 1">
+            <div>Thay đổi <b class="h2">{{ item.change }}</b>%</div>
+            <div>
+              <div class="text-red">{{ item.men.votes.red[0] }}% 🠮 {{ item.men.votes.red[1] }}%</div>
+              <div class="text-green">{{ item.men.votes.green[0] }}% 🠮 {{ item.men.votes.green[1] }}%</div>
+              <div class="text-purple">{{ item.men.votes.purple[0] }}% 🠮 {{ item.men.votes.purple[1] }}%</div>
+            </div>
+          </men>
+        </div>
+      </div>
+      <h2><small>Những chàng trai </small> kiên định nhất</h2>
+      <small><i>*Chàng trai kiên định nhất là chàng trai giữ được phần trăm bình chọn ít thay đổi nhất qua các vòng</i></small>
+      <div class="row pt-2 pb-4">
+        <div v-for="item, i in topUnchanges" class="col">
+          <men v-bind:men="item.men" v-bind:no="i + 1">
+            <div>Thay đổi <b class="h2">{{ item.change }}</b>%</div>
+            <div>
+              <div class="text-red">{{ item.men.votes.red[0] }}% 🠮 {{ item.men.votes.red[1] }}%</div>
+              <div class="text-green">{{ item.men.votes.green[0] }}% 🠮 {{ item.men.votes.green[1] }}%</div>
+              <div class="text-purple">{{ item.men.votes.purple[0] }}% 🠮 {{ item.men.votes.purple[1] }}%</div>
+            </div>
           </men>
         </div>
       </div>
@@ -94,12 +154,17 @@ menu: Fun Facts
     },
     methods: {
       countColor: function(men, color) {
-        let count = 0;
+        let correct = incorrect = red = green = purple = 0;
         for (const key in men.judge) {
-          const colors = men.judge[key];
-          count += colors.filter(c => c === color).length;
+          men.judge[key].forEach(color => {
+            red += color === 'red' ? 1 : 0;
+            green += color === 'green' ? 1 : 0;
+            purple += color === 'purple' ? 1 : 0;
+            correct += color === men.color ? 1 : 0;
+            incorrect += color && color !== men.color ? 1 : 0;
+          });
         }
-        return { men, count };
+        return { men, correct, incorrect, red, green, purple };
       },
       countVote: function(men, color) {
         let count = 0;
@@ -112,10 +177,24 @@ menu: Fun Facts
         });
         return { men, vote: total / count };
       },
+      countVoteChange: function(men) {
+        let change = 0;
+        for (const color in men.votes) {
+          const votes = men.votes[color];
+          const r1 = votes[0];
+          const r2 = votes[1];
+          if (r2) {
+            change += Math.abs(r1 - r2);
+          } else {
+            change = -1;
+          }
+        }
+        return { men, change };
+      },
       topColor: function(top, color) {
         return this.mens
         .map(men => this.countColor(men, color))
-        .sort((a, b) => b.count - a.count)
+        .sort((a, b) => b[color] - a[color])
         .slice(0, top);
       },
       topVote: function(top, color) {
@@ -123,7 +202,7 @@ menu: Fun Facts
         .map(men => this.countVote(men, color))
         .sort((a, b) => b.vote - a.vote)
         .slice(0, top);
-      }
+      },
     },
     computed: {
       topGreens: function() { return this.topColor(5, 'green') },
@@ -132,6 +211,29 @@ menu: Fun Facts
       topGreenVotes: function() { return this.topVote(5, 'green') },
       topRedVotes: function() { return this.topVote(5, 'red') },
       topPurpleVotes: function() { return this.topVote(5, 'purple') },
+      topCorrects: function() {
+        return this.mens
+        .map(men => this.countColor(men))
+        .sort((a, b) => b.correct - a.correct)
+        .slice(0, 5)
+      },
+      topDifferents: function() {
+        return this.mens
+        .map(men => this.countColor(men))
+        .sort((a, b) => b.incorrect - a.incorrect)
+        .slice(0, 5)
+      },
+      topChanges: function() {
+        return this.mens
+        .map(men => this.countVoteChange(men))
+        .sort((a, b) => b.change - a.change)
+      },
+      topUnchanges: function() {
+        return this.topChanges
+        .reverse()
+        .filter(item => item.change !== -1)
+        .slice(0, 5)
+      },
     },
     data: {
       mens: {{ mens | jsonify }}

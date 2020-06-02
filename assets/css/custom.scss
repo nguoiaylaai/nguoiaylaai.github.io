@@ -64,6 +64,15 @@
 .hash-purple {
   @include hash(#A54ABD, "GIỚI TÍNH THỨ 3");
 }
+.text-red {
+  color: #F5313A;
+}
+.text-green {
+  color: #00A759;
+}
+.text-purple {
+  color: #A54ABD;
+}
 .small {
   transform: scale(0.75) translateY(50%);
 }
