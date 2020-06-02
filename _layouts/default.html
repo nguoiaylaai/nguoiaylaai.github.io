@@ -4,16 +4,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ page.title }} - Người Ấy Là Ai Database</title>
-    <meta name="description" content="">
+    <meta name="description" content="{{page.description}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <meta property="og:url" content="{{site.url}}{{page.url}}" />
     {% if page.layout == "men" %}
-    {% assign id = page.name | split: "." | first %}
-    <meta property="og:description" content='"{{page.quote}}"' />
-    <meta property="og:image" content="/assets/mens/{{id}}.png" />
+      {% assign id = page.name | split: "." | first %}
+      <meta property="og:description" content='"{{page.quote}}"' />
+      <meta property="og:image" content="/assets/mens/{{id}}.png" />
     {% else %}
-    <meta property="og:image" content="/assets/img/brand/nala.png" />
+      <meta property="og:description" content="{{page.description}}" />
+      {% if page.thumbnail %}
+      <meta property="og:image" content="{{page.thumbnail}}" />
+      {% else %}
+      <meta property="og:image" content="/assets/img/brand/nala.png" />
+      {% endif %}
     {% endif %}
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
