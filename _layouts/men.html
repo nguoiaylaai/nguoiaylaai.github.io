@@ -128,6 +128,22 @@ layout: 'default'
           {% endif %}
         </div>
       </div>
+      <div class="col-12">
+        <div class="user-block block">
+          <h3>Những chàng trai khác trong tập {{ episode }}</h3>
+          {% assign mens = site.pages | where: "layout", "men" %}
+          {% capture query %}-{{ episode }}-{% endcapture %}
+          <div class="row">
+            {% for men in mens %}
+              {% if men.name contains query and men.name != page.name %}
+              <div class="col">
+                {% include a-men.html men=men %}
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
