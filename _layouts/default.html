@@ -7,6 +7,7 @@
     <meta name="description" content="{{page.description}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
+    <meta property="fb:app_id" content="719013642260928" />
     <meta property="og:url" content="{{site.url}}{{page.url}}" />
     {% if page.layout == "men" %}
       {% assign id = page.name | split: "." | first %}
@@ -124,6 +125,23 @@
         </div>
         {%- endif -%}
         {{ content }}
+
+        {%- if page.comment != false -%}
+          <section class="detail no-padding-bottom">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12">
+                  <div class="block">
+                    <h3>Bình luận</h3>
+                    <div id="fb-root"></div>
+                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v7.0&appId=719013642260928&autoLogAppEvents=1"></script>
+                    <div class="fb-comments" data-href="{{site.url}}{{page.url}}" data-numposts="5" data-width="100%" data-colorscheme="dark"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        {%- endif -%}
         <footer class="footer">
           <div class="footer__block block no-margin-bottom">
             <div class="container-fluid text-center">

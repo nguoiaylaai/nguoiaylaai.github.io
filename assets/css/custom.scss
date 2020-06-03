@@ -103,3 +103,11 @@
   background-color: #db6574;
   box-shadow: 0 0 0 4px rgba(#db6574, 0.5);
 }
+.fb-comments iframe {
+  width: 100% !important;
+}
+.fb-comments:not([fb-xfbml-state="rendered"])::after {
+  content: url(/assets/img/fb-loading.gif);
+  display: block;
+  height: 20px;
+} 
