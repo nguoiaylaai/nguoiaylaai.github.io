@@ -10,58 +10,58 @@ thumbnail: /assets/mens/3-4-5.png
   <section class="detail">
     <div class="container-fluid">
       <h2><small>Những chàng trai được</small> nhiều màu xanh nhất</h2>
-      <div class="row pt-2 pb-4">
-        <div v-for="item, i in topGreens" class="col">
-          <men v-bind:men="item.men" v-bind:no="i + 1">
+      <div class="row flex-wrap-reverse flex-row-reverse">
+        <div v-for="item, i in topGreens" class="col py-2 mb-2">
+          <men v-bind:men="item.men" v-bind:no="5 - i">
             <div class="small green"></div> x<b class="h2">{{ item.green }}</b>
           </men>
         </div>
       </div>
       <h2><small>Những chàng trai được</small> nhiều màu đỏ nhất</h2>
-      <div class="row pt-2 pb-4">
-        <div v-for="item, i in topReds" class="col">
-          <men v-bind:men="item.men" v-bind:no="i + 1">
+      <div class="row flex-wrap-reverse flex-row-reverse">
+        <div v-for="item, i in topReds" class="col py-2 mb-2">
+          <men v-bind:men="item.men" v-bind:no="5 - i">
             <div class="small red"></div> x<b class="h2">{{ item.red }}</b>
           </men>
         </div>
       </div>
       <h2><small>Những chàng trai được</small> nhiều màu tím nhất</h2>
-      <div class="row pt-2 pb-4">
-        <div v-for="item, i in topPurples" class="col">
-          <men v-bind:men="item.men" v-bind:no="i + 1">
+      <div class="row flex-wrap-reverse flex-row-reverse">
+        <div v-for="item, i in topPurples" class="col py-2 mb-2">
+          <men v-bind:men="item.men" v-bind:no="5 - i">
             <div class="small purple"></div> x<b class="h2">{{ item.purple }}</b>
           </men>
         </div>
       </div>
       <h2><small>Những chàng trai được</small> nhiều khán giả bỉ̀nh chọn màu xanh nhất</h2>
-      <div class="row pt-2 pb-4">
-        <div v-for="item, i in topGreenVotes" class="col">
-          <men v-bind:men="item.men" v-bind:no="i + 1">
+      <div class="row flex-wrap-reverse flex-row-reverse">
+        <div v-for="item, i in topGreenVotes" class="col py-2 mb-2">
+          <men v-bind:men="item.men" v-bind:no="5 - i">
             <b class="h2">{{ item.vote }}</b>% <div class="small green"></div>
           </men>
         </div>
       </div>
       <h2><small>Những chàng trai được</small> nhiều khán giả bỉ̀nh chọn màu đỏ nhất</h2>
-      <div class="row pt-2 pb-4">
-        <div v-for="item, i in topRedVotes" class="col">
-          <men v-bind:men="item.men" v-bind:no="i + 1">
+      <div class="row flex-wrap-reverse flex-row-reverse">
+        <div v-for="item, i in topRedVotes" class="col py-2 mb-2">
+          <men v-bind:men="item.men" v-bind:no="5 - i">
             <b class="h2">{{ item.vote }}</b>% <div class="small red"></div>
           </men>
         </div>
       </div>
       <h2><small>Những chàng trai được</small> nhiều khán giả bỉ̀nh chọn màu tím nhất</h2>
-      <div class="row pt-2 pb-4">
-        <div v-for="item, i in topPurpleVotes" class="col">
-          <men v-bind:men="item.men" v-bind:no="i + 1">
+      <div class="row flex-wrap-reverse flex-row-reverse">
+        <div v-for="item, i in topPurpleVotes" class="col py-2 mb-2">
+          <men v-bind:men="item.men" v-bind:no="5 - i">
             <b class="h2">{{ item.vote }}</b>% <div class="small purple"></div>
           </men>
         </div>
       </div>
       <h2><small>Những chàng trai </small> làm nhiều người ngạc nhiên nhất</h2>
       <small><i>*Chàng trai làm nhiều người ngạc nhiên nhất được xem là chàng trai có nhiều phiếu bầu khác với màu thật của mình nhất</i></small>
-      <div class="row pt-2 pb-4">
-        <div v-for="item, i in topDifferents" class="col">
-          <men v-bind:men="item.men" v-bind:no="i + 1">
+      <div class="row flex-wrap-reverse flex-row-reverse">
+        <div v-for="item, i in topDifferents" class="col py-2 mb-2">
+          <men v-bind:men="item.men" v-bind:no="5 - i">
             <div>
               <b class="h2">{{ item.incorrect }}</b> phiếu bầu sai
             </div>
@@ -75,9 +75,9 @@ thumbnail: /assets/mens/3-4-5.png
       </div>
       <h2><small>Những chàng trai </small> dễ đoán nhất</h2>
       <small><i>*Chàng trai dễ đoán nhất được xem là chàng trai có nhiều phiếu bầu đúng với màu thật của mình nhất</i></small>
-      <div class="row pt-2 pb-4">
-        <div v-for="item, i in topCorrects" class="col">
-          <men v-bind:men="item.men" v-bind:no="i + 1">
+      <div class="row flex-wrap-reverse flex-row-reverse">
+        <div v-for="item, i in topCorrects" class="col py-2 mb-2">
+          <men v-bind:men="item.men" v-bind:no="5 - i">
             <div>
               <b class="h2">{{ item.correct }}</b> phiếu bầu đúng
             </div>
@@ -91,9 +91,9 @@ thumbnail: /assets/mens/3-4-5.png
       </div>
       <h2><small>Những chàng trai </small> làm mọi người hoang mang chao đảo nhất</h2>
       <small><i>*Chàng trai làm chao đảo nhất được xem là chàng trai có nhiều phần trăm bình chọn thay đổi nhất qua các vòng</i></small>
-      <div class="row pt-2 pb-4">
-        <div v-for="item, i in topChanges.slice(0, 5)" class="col">
-          <men v-bind:men="item.men" v-bind:no="i + 1">
+      <div class="row flex-wrap-reverse flex-row-reverse">
+        <div v-for="item, i in topChanges.slice(-5)" class="col py-2 mb-2">
+          <men v-bind:men="item.men" v-bind:no="5 - i">
             <div>Thay đổi <b class="h2">{{ item.change }}</b>%</div>
             <div>
               <div class="text-red">{{ item.men.votes.red[0] }}% => {{ item.men.votes.red[1] }}%</div>
@@ -105,9 +105,9 @@ thumbnail: /assets/mens/3-4-5.png
       </div>
       <h2><small>Những chàng trai </small> kiên định nhất</h2>
       <small><i>*Chàng trai kiên định nhất là chàng trai giữ được phần trăm bình chọn ít thay đổi nhất qua các vòng</i></small>
-      <div class="row pt-2 pb-4">
-        <div v-for="item, i in topUnchanges" class="col">
-          <men v-bind:men="item.men" v-bind:no="i + 1">
+      <div class="row flex-wrap-reverse flex-row-reverse">
+        <div v-for="item, i in topUnchanges" class="col py-2 mb-2">
+          <men v-bind:men="item.men" v-bind:no="5 - i">
             <div>Thay đổi <b class="h2">{{ item.change }}</b>%</div>
             <div>
               <div class="text-red">{{ item.men.votes.red[0] }}% => {{ item.men.votes.red[1] }}%</div>
@@ -152,7 +152,6 @@ thumbnail: /assets/mens/3-4-5.png
   var app = new Vue({
     el: '#app',
     created() {
-      console.log(this.mens)
     },
     methods: {
       countColor: function(men, color) {
@@ -196,14 +195,14 @@ thumbnail: /assets/mens/3-4-5.png
       topColor: function(top, color) {
         return this.mens
         .map(men => this.countColor(men, color))
-        .sort((a, b) => b[color] - a[color])
-        .slice(0, top);
+        .sort((a, b) => a[color] - b[color])
+        .slice(-top);
       },
       topVote: function(top, color) {
         return this.mens
         .map(men => this.countVote(men, color))
-        .sort((a, b) => b.vote - a.vote)
-        .slice(0, top);
+        .sort((a, b) => a.vote - b.vote)
+        .slice(-top);
       },
     },
     computed: {
@@ -216,25 +215,25 @@ thumbnail: /assets/mens/3-4-5.png
       topCorrects: function() {
         return this.mens
         .map(men => this.countColor(men))
-        .sort((a, b) => b.correct - a.correct)
-        .slice(0, 5)
+        .sort((a, b) => a.correct - b.correct)
+        .slice(-5)
       },
       topDifferents: function() {
         return this.mens
         .map(men => this.countColor(men))
-        .sort((a, b) => b.incorrect - a.incorrect)
-        .slice(0, 5)
+        .sort((a, b) => a.incorrect - b.incorrect)
+        .slice(-5)
       },
       topChanges: function() {
         return this.mens
         .map(men => this.countVoteChange(men))
-        .sort((a, b) => b.change - a.change)
+        .sort((a, b) => a.change - b.change)
       },
       topUnchanges: function() {
         return this.topChanges
-        .reverse()
         .filter(item => item.change !== -1)
         .slice(0, 5)
+        .reverse();
       },
     },
     data: {
