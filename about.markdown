@@ -1,7 +1,6 @@
 ---
 layout: simple
 title: Giới thiệu
-menu: Thông tin
 permalink: /about/
 comment: no
 adsense: no
